@@ -205,6 +205,17 @@ class JABTextInfo(textInfos.offsets.OffsetsTextInfo):
 		# TODO: Not sure how to interpret Java's alignment numbers.
 		return field, (offset, offset + length)
 
+	def _getWordOffsets(self,offset):
+		word = self.obj.jabContext.getAccessibleTextItems(offset).word
+		# Check if the word is to the right of the offset
+		if self.obj.jabContext.getAccessibleTextRange(offset, offset + len(word) - 1) == word:
+			return offset, offset + len(word)
+		# Check if the word is to the left of the offset
+		if self.obj.jabContext.getAccessibleTextRange(offset - len(word), offset - 1) == word:
+			return offset - len(word), offset
+		# Couldn't determine, so fallback to the base implementation
+		return super(JABTextInfo, self)._getWordOffsets(offset)
+
 	def getEmbeddedObject(self, offset=0):
 		offset += self._startOffset
 
