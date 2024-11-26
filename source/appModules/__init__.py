@@ -59,6 +59,31 @@ EXECUTABLE_NAMES_TO_APP_MODS: dict[str, str] = {
 	"zend-eclipse-php": "eclipse",
 	# Zend Studio is based on Eclipse and should use its appModule.
 	"zendstudio": "eclipse",
+	# The app module for IDEs based on JetBrains IntelliJ Platform (they have the same UI).
+	# IntelliJ IDEA
+	"idea64": "intellij",
+	# Android Studio
+	"studio64": "intellij",
+	# PyCharm
+	"pycharm64": "intellij",
+	# Rider
+	"rider64": "intellij",
+	# CLion
+	"clion64": "intellij",
+	# GoLand
+	"goland64": "intellij",
+	# PhpStorm
+	"phpstorm64": "intellij",
+	# WebStorm
+	"webstorm64": "intellij",
+	# RubyMine
+	"rubymine64": "intellij",
+	# RustRover
+	"rustrover64": "intellij",
+	# DataGrip
+	"datagrip64": "intellij",
+	# Aqua
+	"aqua64": "intellij",
 }
 
 """Maps names of the executables to the names of the appModule which should be loaded for the given program.
